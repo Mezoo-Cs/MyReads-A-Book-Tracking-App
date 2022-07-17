@@ -10,7 +10,7 @@ export const Book = ({book}) => {
             {/* book title */}
             <strong className=' px-2 text-ellipsis overflow-hidden whitespace-nowrap w-[150px] h-[25px]'>{book.title}</strong>
             {/* book authors */}
-            <span className=' px-2 text-slate-500 text-ellipsis overflow-hidden whitespace-nowrap w-[150px] h-[25px]'>{book.authors.join(" , ")}</span>
+            <span className=' px-2 text-slate-500 text-ellipsis overflow-hidden whitespace-nowrap w-[150px] h-[25px]'>{book.authors?.join(" , ")}</span>
             {/* datail page and shelf changer */}
             <div className='w-full flex justify-between items-center pb-2'>
                 <Link to ={`/details/${book.id}`} className = "px-2 text-blue-600">read more</Link>

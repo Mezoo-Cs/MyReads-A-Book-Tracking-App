@@ -32,6 +32,11 @@ export const Search = () => {
       booksOnShelfs.then((r)=> {
 
         let arr = removeCommen(res,r);
+
+        arr = arr.filter((e)=>{
+          return e.hasOwnProperty("authors") 
+        })
+
         setBooks(arr);
       });
     })

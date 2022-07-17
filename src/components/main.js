@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAll} from '../BooksAPI'
-import { BookShelf } from './bookShelf.jsx'
+import { BookShelf } from './bookShelf.js'
 
 export const Main = () => {
     let books = getAll();

@@ -1,9 +1,9 @@
 import { Route , Routes } from "react-router-dom";
-import { NotFound } from "./components/404.jsx";
-import { Details } from "./components/details.jsx";
-import { Main } from "./components/main.jsx";
-import { Navbar } from "./components/navbar.jsx";
-import { Search } from "./components/search.jsx";
+import { NotFound } from "./components/404.js";
+import { Details } from "./components/details.js";
+import { Main } from "./components/main.js";
+import { Navbar } from "./components/navbar.js";
+import { Search } from "./components/search.js";
 
 
 function App() {
