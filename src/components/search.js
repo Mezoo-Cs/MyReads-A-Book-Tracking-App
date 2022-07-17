@@ -37,6 +37,11 @@ export const Search = () => {
   
           let arr = removeCommen(res,r);
 
+          if(arr.hasOwnProperty("error")){
+            setBooks([]);
+            return;
+          }
+
           arr = arr.filter((e)=>{
             return e.hasOwnProperty("authors") && e.hasOwnProperty("imageLinks")
           })
@@ -60,6 +65,7 @@ export const Search = () => {
         </div>
         {/* books grid */}
         <div className='flex gap-4 flex-wrap justify-center'>
+          {}
           {books.error ? "there is no books with this title" :
           books.length === 0 ? "there is no books with this title":
           books.map((book , i)=>{return <Book key={i} book = {book}/>})}
