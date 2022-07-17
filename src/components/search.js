@@ -21,27 +21,34 @@ export const Search = () => {
 
   const [books , setBooks] = useState([]);
 
+  let filterTimeOut
+
   function handleChange (value){
 
-    if(value === "") {setBooks([]); return;}
+    clearTimeout(filterTimeOut);
 
-    let searchBooks = search(value ,20);
-    searchBooks.then((res)=>{
+    filterTimeOut = setTimeout(()=>{
 
-      let booksOnShelfs = getAll();
-      booksOnShelfs.then((r)=> {
+      let searchBooks = search(value ,20);
+      searchBooks.then((res)=>{
+  
+        let booksOnShelfs = getAll();
+        booksOnShelfs.then((r)=> {
+  
+          let arr = removeCommen(res,r);
 
-        let arr = removeCommen(res,r);
+          arr = arr.filter((e)=>{
+            return e.hasOwnProperty("authors") && e.hasOwnProperty("imageLinks")
+          })
+          setBooks(arr);
+        }).catch((err) => console.error(err))
 
-        arr = arr.filter((e)=>{
-          return e.hasOwnProperty("authors") 
-        })
-
-        setBooks(arr);
-      });
-    })
-
+      }).catch((err)=> console.error(err))
+    },300)
+    
   }
+
+  // console.table(books);
   
 
   return (

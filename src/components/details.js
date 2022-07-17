@@ -9,7 +9,8 @@ export const Details = () => {
 
   useEffect(()=>{
     get(bookId.id).then((res)=>{ setBook(res)}).catch((err)=>{ console.log(err); setBook(undefined)})
-  },[])
+  },[bookId])
+
 
   const navigate = useNavigate()
 
